@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,6 +16,42 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
+<div [hidden]="hideAll">
+  <h1>{{title}}</h1>
+  <div appHighlight [hidden]="hideQuote" >
+    <strong>Mensaje:</strong><span>{{quote}}</span><br>
+    <strong>Autor:</strong><span>{{author}}</span>
+  </div>
+  <br>
+  <div>
+    <button (click)="loadQuote()" *ngIf="!hideFirstButtom" >Ver otro mensaje</button>
+  </div>
+  <br>
+  <div>
+    <!-- <button (click)="onClickHideQuote()"> Soy el segundo boton:  {{ hideFirstButtom ? txtShow: txtHide }} el mensaje :D</button> -->
+    <button (click)="onClickHideQuote()"> {{valueSecondButton}}</button>
+  </div>
+  <br>
+  <div>
+    <!-- <button (click)="onClickHideShowFirstButtom()">Soy el tercer boton: Oculto/muestro el boton de ver mensajes</button> -->
+    <button (click)="onClickHideShowFirstButtom()">{{valueThirdButton}}</button>
+  </div>
+  <br>
+  <div>
+    <!-- <button (click)="onClickHideShowImage()">Soy el cuarto boton: Oculto/muestro la imagen</button> -->
+    <button (click)="onClickHideShowImage()">{{valueFourthButton}}</button>
+  </div>
+  <img src="{{urlImage}}" width="600" [hidden]="hideImage">
+</div>
+<br>
+<div>
+  <!-- <button (click)="onClickHideShowAll()">Soy el quinto boton: Oculto y muestro todo</button> -->
+<button (click)="onClickHideShowAll()">{{valueFifthButton}}</button>
+</div>
+
+<div [hidden]="!hideAll">
+  <strong>Name:</strong> <span>Rudy Rojas Gutierrez</span>
+</div>
 
 <router-outlet></router-outlet>
